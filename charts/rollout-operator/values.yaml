@@ -125,8 +125,8 @@ webhooks:
   #         values:
   #           - production
 
-  namespaceSelector: {}
   # -- namespaceSelector to filter which namespaces the webhooks apply to.
+  namespaceSelector: {}
   # If not set, defaults to the release namespace.
   # See https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#matching-requests-namespaceselector
   # Example:
