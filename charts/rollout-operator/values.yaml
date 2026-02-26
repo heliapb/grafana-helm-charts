@@ -125,13 +125,16 @@ webhooks:
   #         values:
   #           - production
 
-namespaceSelector:
-  # -- Namespace selector to filter which namespaces the webhooks apply to.
+  namespaceSelector: {}
+  # -- namespaceSelector to filter which namespaces the webhooks apply to.
+  # If not set, defaults to the release namespace.
   # See https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#matching-requests-namespaceselector
   # Example:
+  #   namespaceSelector:
+  #     matchLabels:
+  #       kubernetes.io/metadata.name: logging
   #     matchExpressions:
   #       - key: team
   #         operator: NotIn
   #         values:
   #           - team-a
-  matchExpressions: []

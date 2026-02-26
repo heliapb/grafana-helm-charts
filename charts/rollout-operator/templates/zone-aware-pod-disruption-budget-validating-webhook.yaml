@@ -27,13 +27,14 @@ webhooks:
           - zoneawarepoddisruptionbudgets
         scope: Namespaced
     admissionReviewVersions: ["v1"]
+    {{- if .Values.namespaceSelector }}
+    namespaceSelector:
+      {{- toYaml .Values.namespaceSelector | nindent 4 }}
+    {{- else }}
     namespaceSelector:
       matchLabels:
         kubernetes.io/metadata.name: {{ .Release.Namespace | quote }}
-      {{- with .Values.namespaceSelector.matchExpressions }}
-      matchExpressions:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+    {{- end }}
     {{- with .Values.webhooks.objectSelector }}
     objectSelector:
       {{- toYaml . | nindent 6 }}

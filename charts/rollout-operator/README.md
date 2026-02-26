@@ -4,7 +4,7 @@ Helm chart for deploying [Grafana rollout-operator](https://github.com/grafana/r
 
 # rollout-operator
 
-![Version: 0.43.0](https://img.shields.io/badge/Version-0.43.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.35.0](https://img.shields.io/badge/AppVersion-v0.35.0-informational?style=flat-square)
+![Version: 0.43.1](https://img.shields.io/badge/Version-0.43.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.35.0](https://img.shields.io/badge/AppVersion-v0.35.0-informational?style=flat-square)
 
 Grafana rollout-operator
 
@@ -62,7 +62,6 @@ Manually applying these CRDs is only required if upgrading from a chart <= v0.32
 | imagePullSecrets | list | `[]` |  |
 | minReadySeconds | int | `10` |  |
 | nameOverride | string | `""` |  |
-| namespaceSelector.matchExpressions | list | `[]` | Namespace selector to filter which namespaces the webhooks apply to. See https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#matching-requests-namespaceselector Example:     matchExpressions:       - key: team         operator: NotIn         values:           - team-a |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` | Pod Annotations |
 | podLabels | object | `{}` | Pod (extra) Labels |
@@ -87,5 +86,6 @@ Manually applying these CRDs is only required if upgrading from a chart <= v0.32
 | tolerations | list | `[]` |  |
 | webhooks.enabled | bool | `true` | Enable the rollout-operator webhooks. See https://github.com/grafana/rollout-operator/#webhooks. Note that the webhooks require custom resource definitions. If upgrading, manually apply the files in the `crds` directory. |
 | webhooks.failurePolicy | string | `"Fail"` | Validating and mutating webhook failure policy. `Ignore` or `Fail`. |
+| webhooks.namespaceSelector | object | `{}` |  |
 | webhooks.objectSelector | object | `{}` | objectSelector to filter which objects the webhooks apply to. |
 | webhooks.selfSignedCertSecretName | string | `"certificate"` | Secret resource name for the TLS certificate to be used with the webhooks |
