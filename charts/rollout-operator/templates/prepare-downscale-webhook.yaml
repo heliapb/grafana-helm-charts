@@ -28,9 +28,9 @@ webhooks:
         scope: Namespaced
     admissionReviewVersions:
       - v1
-    {{- if .Values.namespaceSelector }}
+    {{- if .Values.webhooks.namespaceSelector }}
     namespaceSelector:
-      {{- toYaml .Values.namespaceSelector | nindent 4 }}
+      {{- toYaml .Values.webhooks.namespaceSelector | nindent 4 }}
     {{- else }}
     namespaceSelector:
       matchLabels:
